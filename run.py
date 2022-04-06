@@ -86,9 +86,11 @@ def play_again():
     Function takes user response and determines
     whether to play game again.
     """
-    response = input("Do you want to play again? (y/n)\n")
-    response = response.lower()
+    response = input("Do you want to play again? (y/n)\n").lower()
 
+    while response not in {'y', 'n'}:
+        # User input validation
+        response = input("Invalid answer, try again\n").lower()
     if response == "y":
         return True
     else:
