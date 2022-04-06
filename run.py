@@ -1,6 +1,7 @@
 from questions import question_prompts
 from question_class import Question
 
+
 print("""
   ____ _____  _    ____   __        ___    ____  ____     ___  _   _ ___ _____
  / ___|_   _|/ \  |  _ \  \ \      / / \  |  _ \/ ___|   / _ \| | | |_ _|__  /
@@ -11,8 +12,23 @@ print("""
 """)
 
 name = input("Please enter your name\n")
-print(f"\nMay The Force Be With You {name}\n")
-print("*********************************")
+print(f"Hello, {name}.\n")
+
+
+def start_game():
+    """
+    Function asks user if they are ready to start,
+    if user input is yes then message will be displayed
+    to the user and the quiz will begin. Any other input
+    is deemed invalid.
+    """
+    if input("Are you ready to start the quiz? (y)\n").lower() == "y":
+        print(f"\nMay The Force Be With You, {name}.\n")
+        print("*********************************")
+        run_quiz()
+    else:
+        print("Invalid answer, try again\n")
+        start_game()
 
 
 questions = [
@@ -52,7 +68,7 @@ def run_quiz():
         answer = input(question.prompt).lower()
         while answer not in {'a', 'b', 'c'}:
             # User input validation
-            answer = input("Invalid answer, try again").lower()
+            answer = input("Invalid answer, try again\n").lower()
         if answer == question.answer:
             # Increases score by 1
             score += 1
@@ -70,7 +86,7 @@ def play_again():
     Function takes user response and determines
     whether to play game again.
     """
-    response = input("Do you want to play again? (y/n)")
+    response = input("Do you want to play again? (y/n)\n")
     response = response.lower()
 
     if response == "y":
@@ -79,7 +95,7 @@ def play_again():
         return False
 
 
-run_quiz()
+start_game()
 
 while play_again():
     run_quiz()
