@@ -1,5 +1,23 @@
 from questions import question_prompts
 from question_class import Question
+import gspread
+from google.oauth2.service_account import Credentials
+
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('Star Wars Quiz High Scores')
+
+player_scores = SHEET.worksheet('player_scores')
+
+data = player_scores.get_all_values()
+print(data)
 
 
 print("""
@@ -84,7 +102,8 @@ def run_quiz():
 def play_again():
     """
     Function takes user response and determines
-    whether to play game again.
+    whether to play game again. If yes then run_quiz runs,
+    if no then goodbye message will display.
     """
     response = input("Do you want to play again? (y/n)\n").lower()
 
