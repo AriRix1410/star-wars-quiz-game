@@ -3,6 +3,9 @@ from question_class import Question
 import gspread
 from google.oauth2.service_account import Credentials
 
+# names = [""]
+player_scores = ["", ""]
+
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -14,12 +17,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Star Wars Quiz High Scores')
 
-player_scores = SHEET.worksheet('player_scores')
-
-data = player_scores.get_all_values()
-print(data)
-
-
 print("""
   ____ _____  _    ____   __        ___    ____  ____     ___  _   _ ___ _____
  / ___|_   _|/ \  |  _ \  \ \      / / \  |  _ \/ ___|   / _ \| | | |_ _|__  /
@@ -30,6 +27,8 @@ print("""
 """)
 
 name = input("Please enter your name\n")
+# names = SHEET.worksheet('player_names')
+# names.append_row([name])
 print(f"Hello, {name}.\n")
 
 
@@ -97,6 +96,8 @@ def run_quiz():
         print("*********************************")
 
     print(f"{name} got {score} out of {len(questions)} questions correct")
+    player_scores = SHEET.worksheet('high_scores')
+    player_scores.append_row([name, score])
 
 
 def play_again():
