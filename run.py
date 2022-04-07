@@ -93,6 +93,7 @@ def run_quiz():
         print("*********************************")
 
     print(f"{name} got {score} out of {len(questions)} questions correct")
+    # Adds new row to worksheet with user name and score
     SHEET.worksheet('high_scores').append_row([name, score])
 
 
@@ -129,11 +130,18 @@ def show_high_scores():
     print('\nHigh Scores\n')
 
     for i in range(5):
-        print(str(names_data[i]) + "\t" + str(sorted_scores[i]))
+        print(str(names_data) + "\t" + str(sorted_scores[i]))
 
 
-start_game()
-while play_again():
-    run_quiz()
-print(f"\nGoodbye {name}")
-show_high_scores()
+def main():
+    """
+    Run all program functions
+    """
+    start_game()
+    while play_again():
+        run_quiz()
+    print(f"\nGoodbye {name}")
+    show_high_scores()
+
+
+main()
