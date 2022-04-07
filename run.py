@@ -116,7 +116,8 @@ def play_again():
 
 def show_high_scores():
     """
-    shows top 5 highest scores to the user
+    Shows top 5 highest scores to the user. Retrieves and
+    sorts scores numerically.
     """
     scores_col = SHEET.worksheet('high_scores').col_values(2)
     scores_data = scores_col[1:]
