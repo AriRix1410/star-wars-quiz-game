@@ -19,10 +19,9 @@ SHEET = GSPREAD_CLIENT.open('Star Wars Quiz High Scores')
 print("""
   ____ _____  _    ____   __        ___    ____  ____     ___  _   _ ___ _____
  / ___|_   _|/ \  |  _ \  \ \      / / \  |  _ \/ ___|   / _ \| | | |_ _|__  /
- \___ \ | | / _ \ | |_) |  \ \ /\ / / _ \ | |_) \___ \  | | | | | | || |  / / 
-  ___) || |/ ___ \|  _ <    \ V  V / ___ \|  _ < ___) | | |_| | |_| || | / /_ 
+ \___ \ | | / _ \ | |_) |  \ \ /\ / / _ \ | |_) \___ \  | | | | | | || |  / /
+  ___) || |/ ___ \|  _ <    \ V  V / ___ \|  _ < ___) | | |_| | |_| || | / /
  |____/ |_/_/   \_\_| \_\    \_/\_/_/   \_\_| \_\____/   \__\_\\___/|___/____|
-                                                                              
 """)
 
 name = input("Please enter your name\n")
@@ -131,7 +130,7 @@ def show_high_scores():
     print('\nHigh Scores\n')
 
     for i in range(5):
-        print(str(names_data) + "\t" + str(sorted_scores[i]))
+        print(str(names_data[i]) + "\t" + str(sorted_scores[i]))
 
 
 def main():
