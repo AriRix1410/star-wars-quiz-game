@@ -3,7 +3,6 @@ from question_class import Question
 import gspread
 from google.oauth2.service_account import Credentials
 
-# names = [""]
 player_scores = ["", ""]
 
 SCOPE = [
@@ -27,8 +26,6 @@ print("""
 """)
 
 name = input("Please enter your name\n")
-# names = SHEET.worksheet('player_names')
-# names.append_row([name])
 print(f"Hello, {name}.\n")
 
 
@@ -96,8 +93,7 @@ def run_quiz():
         print("*********************************")
 
     print(f"{name} got {score} out of {len(questions)} questions correct")
-    player_scores = SHEET.worksheet('high_scores')
-    player_scores.append_row([name, score])
+    SHEET.worksheet('high_scores').append_row([name, score])
 
 
 def play_again():
@@ -117,8 +113,27 @@ def play_again():
         return False
 
 
-start_game()
+def show_high_scores():
+    """
+    shows top 5 highest scores to the user
+    """
+    scores_col = SHEET.worksheet('high_scores').col_values(2)
+    scores_data = scores_col[1:]
 
+    scores_numeric = [int(score_str) for score_str in scores_data]
+    sorted_scores = sorted(scores_numeric, reverse=True)
+
+    names_col = SHEET.worksheet('high_scores').col_values(1)
+    names_data = names_col[1:]
+
+    print('\nHigh Scores\n')
+
+    for i in range(5):
+        print(str(names_data[i]) + "\t" + str(sorted_scores[i]))
+
+
+start_game()
 while play_again():
     run_quiz()
 print(f"\nGoodbye {name}")
+show_high_scores()
