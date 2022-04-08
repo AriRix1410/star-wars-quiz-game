@@ -4,7 +4,6 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 player_scores = ["", ""]
-name = []
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -40,14 +39,15 @@ def get_name():
     The loop will repeatedly request data, until it is valid.
     """
     while True:
-        name = input("""Please enter your name
+        global NAME
+        NAME = input("""Please enter your name
 (Maximum of 6 characters. Letters and numbers only.)\n""")
 
-        if check_name(name):
-            print(f"Hello, {name}.\n")
+        if check_name(NAME):
+            print(f"Hello, {NAME}.\n")
             break
 
-    return name
+    return NAME
 
 
 def check_name(name):
@@ -58,7 +58,7 @@ def check_name(name):
     a name entry.
     """
     try:
-        if not name:
+        if not NAME:
             raise ValueError("Please enter your name")
         if len(name) > 6:
             raise ValueError("Name contains too many characters.")
@@ -79,7 +79,7 @@ def start_game():
     is deemed invalid.
     """
     if input("Are you ready to start the quiz? (y)\n").lower() == "y":
-        print(f"\nMay The Force Be With You, {name}.\n")
+        print(f"\nMay The Force Be With You, {NAME}.\n")
         print("*********************************")
         run_quiz()
     else:
@@ -128,15 +128,15 @@ def run_quiz():
         if answer == question.answer:
             # Increases score by 1
             score += 1
-            print(f"Well done {name}. That is correct\n")
+            print(f"Well done {NAME}. That is correct\n")
         else:
-            print(f"Sorry {name}. That answer is incorrect\n")
+            print(f"Sorry {NAME}. That answer is incorrect\n")
 
         print("*********************************")
 
-    print(f"{name} got {score} out of {len(questions)} questions correct")
+    print(f"{NAME} got {score} out of {len(questions)} questions correct")
     # Adds new row to worksheet with user name and score
-    SHEET.worksheet('high_scores').append_row([name, score])
+    SHEET.worksheet('high_scores').append_row([NAME, score])
 
 
 def play_again():
@@ -181,11 +181,11 @@ def main():
     Run all program functions
     """
     get_name()
-    check_name(name)
+    check_name(NAME)
     start_game()
     while play_again():
         run_quiz()
-    print(f"\nGoodbye {name}")
+    print(f"\nGoodbye {NAME}")
     show_high_scores()
 
 
