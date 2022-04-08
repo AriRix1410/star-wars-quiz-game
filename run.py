@@ -4,6 +4,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 player_scores = ["", ""]
+name = []
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -29,8 +30,45 @@ print("You will be asked a total of 20 questions")
 print("These questions are all multiple choice (a, b, c or d)")
 print("To lock in your answers, type a letter and hit enter\n")
 
-name = input("Please enter your name\n\n")
-print(f"Hello, {name}.\n")
+
+def get_name():
+    """
+    Get name input from the user.
+    Run a while loop to collect a valid string of data from the user
+    via the terminal, must be a string of maximum 6 characters
+    and contain only letters and numbers.
+    The loop will repeatedly request data, until it is valid.
+    """
+    while True:
+        name = input("""Please enter your name
+(Maximum of 6 characters. Letters and numbers only.)\n""")
+
+        if check_name(name):
+            print(f"Hello, {name}.\n")
+            break
+
+    return name
+
+
+def check_name(name):
+    """
+    Inside the try, validates user's input for an inputted name.
+    ValueError will be raised for names longer than 6 characters,
+    using characters which are deemed invalid or for lack of
+    a name entry.
+    """
+    try:
+        if not name:
+            raise ValueError("Please enter your name")
+        if len(name) > 6:
+            raise ValueError("Name contains too many characters.")
+        if not name.isalnum():
+            raise ValueError("Invalid characters used.")
+    except ValueError as e:
+        print(f"Invalid data: {e} Try again.\n")
+        return False
+
+    return True
 
 
 def start_game():
@@ -142,6 +180,8 @@ def main():
     """
     Run all program functions
     """
+    get_name()
+    check_name(name)
     start_game()
     while play_again():
         run_quiz()
