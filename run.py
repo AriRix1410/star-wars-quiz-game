@@ -24,7 +24,12 @@ print("""
  |____/ |_/_/   \_\_| \_\    \_/\_/_/   \_\_| \_\____/   \__\_\\___/|___/____|
 """)
 
-name = input("Please enter your name\n")
+print("Would you like to test your Star Wars knowledge?")
+print("You will be asked a total of 20 questions")
+print("These questions are all multiple choice (a, b, c or d)")
+print("To lock in your answers, type a letter and hit enter\n")
+
+name = input("Please enter your name\n\n")
 print(f"Hello, {name}.\n")
 
 
@@ -47,15 +52,15 @@ def start_game():
 questions = [
     # Assigns correct answer to questions
     Question(question_prompts[0], "b"),
-    Question(question_prompts[1], "c"),
+    Question(question_prompts[1], "d"),
     Question(question_prompts[2], "a"),
-    Question(question_prompts[3], "c"),
+    Question(question_prompts[3], "d"),
     Question(question_prompts[4], "c"),
     Question(question_prompts[5], "b"),
     Question(question_prompts[6], "b"),
     Question(question_prompts[7], "a"),
-    Question(question_prompts[8], "a"),
-    Question(question_prompts[9], "c"),
+    Question(question_prompts[8], "b"),
+    Question(question_prompts[9], "d"),
     Question(question_prompts[10], "a"),
     Question(question_prompts[11], "c"),
     Question(question_prompts[12], "b"),
@@ -63,7 +68,7 @@ questions = [
     Question(question_prompts[14], "c"),
     Question(question_prompts[15], "b"),
     Question(question_prompts[16], "c"),
-    Question(question_prompts[17], "a"),
+    Question(question_prompts[17], "b"),
     Question(question_prompts[18], "c"),
     Question(question_prompts[19], "a")
 ]
@@ -79,7 +84,7 @@ def run_quiz():
     for question in questions:
         # Converts user answer to lower case
         answer = input(question.prompt).lower()
-        while answer not in {'a', 'b', 'c'}:
+        while answer not in {'a', 'b', 'c', 'd'}:
             # User input validation
             answer = input("Invalid answer, try again\n").lower()
         if answer == question.answer:
