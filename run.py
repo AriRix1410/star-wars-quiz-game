@@ -158,22 +158,24 @@ def play_again():
 
 def show_high_scores():
     """
-    Shows top 5 highest scores to the user. Retrieves and
-    sorts scores numerically.
+    Retrieves all values from worksheet and converts scores into
+    integers. Sorts scores numerically from highest to lowest and
+    then displays from highest to lowest.
     """
-    scores_col = SHEET.worksheet('high_scores').col_values(2)
-    scores_data = scores_col[1:]
+    all_stored_data = SHEET.worksheet('high_scores').get_all_values()[1:]
 
-    scores_numeric = [int(score_str) for score_str in scores_data]
-    sorted_scores = sorted(scores_numeric, reverse=True)
+    for num_data in all_stored_data:
+        num_data[1] = int(num_data[1])
 
-    names_col = SHEET.worksheet('high_scores').col_values(1)
-    names_data = names_col[1:]
+    sorted_data = sorted(all_stored_data, key=lambda x: x[1], reverse=True)
+
+    names_data = [el[0] for el in sorted_data]
+    scores_data = [el[1] for el in sorted_data]
 
     print('\nHigh Scores\n')
 
     for i in range(5):
-        print(str(names_data[i]) + "\t" + str(sorted_scores[i]))
+        print(str(names_data[i]) + "\t" + str(scores_data[i]))
 
 
 def main():
