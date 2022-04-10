@@ -1,7 +1,7 @@
-from questions import question_prompts
-from question_class import Question
 import gspread
 from google.oauth2.service_account import Credentials
+from questions import question_prompts
+from question_class import Question
 
 player_scores = ["", ""]
 
@@ -162,11 +162,14 @@ def show_high_scores():
     integers. Sorts scores numerically from highest to lowest and
     then displays from highest to lowest.
     """
+    # gets all data, excluding headings
     all_stored_data = SHEET.worksheet('high_scores').get_all_values()[1:]
 
+    # converts data in scores column to integers
     for num_data in all_stored_data:
         num_data[1] = int(num_data[1])
 
+    # sorts data by scores column in descending order
     sorted_data = sorted(all_stored_data, key=lambda x: x[1], reverse=True)
 
     names_data = [el[0] for el in sorted_data]
@@ -174,6 +177,7 @@ def show_high_scores():
 
     print('\nHigh Scores\n')
 
+    # prints top 5 high scores
     for i in range(5):
         print(str(names_data[i]) + "\t" + str(scores_data[i]))
 
