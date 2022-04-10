@@ -21,7 +21,7 @@ question_prompts = [
     """4.How old was Yoda when he died?\n\n
 (a) 600\n
 (b) 700\n
-(b) 800\n
+(c) 800\n
 (d) 900\n\n""",
 
     """5. How many parsecs did Han Solo make the Kessel Run in?\n\n
@@ -109,7 +109,7 @@ Obi-Wan on Utapau?\n\n
 (c) 8 ft 2\n
 (d) 8 ft 7\n\n""",
 
-    """19. What's Poe Dameron's droid called?\n\n
+    """19. What is the name of Poe Dameron's droid?\n\n
 (a) R2-D2\n
 (b) C-3PO\n
 (c) BB-8\n
