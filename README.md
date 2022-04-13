@@ -68,3 +68,16 @@ At the end of the quiz users will be provided with how many answers they got cor
 
 
 ## Data Models
+
+Google Sheets was used to store the data for the user's name and score. When the quiz ends this data is sorted numerically in order of highest scores to lowest and when the user no longer wants to play, the top 5 highest scores are displayed.
+
+![High Scores Sheet](/assets/images/scores-sheet.png)
+
+This project also contains a questions Class in order to store both the prompts to the questions and also the question answers.
+
+## Logic
+
+### Flowchart
+
+![Flowchart](/assets/images/flowchart.png)
+
