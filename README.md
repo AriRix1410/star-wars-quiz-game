@@ -44,3 +44,27 @@ At the end of the quiz users will be provided with how many answers they got cor
 
   ![Name Too Long](/assets/images/invalid-data-long.png) 
   ![Invalid Characters](/assets/images/invalid-data-char.png)
+
+- __Questions__
+  - Users will be asked a total of 20 questions.
+  - These questions are all multiple choice with answers either a, b, c or d. These options are not case sensitive so if the user is playing the game in CAPS then the answers will still display as correct or incorrect.
+  - If answers do not meet the validation requirements then a message will be displayed stating invalid answer and to try again.
+
+  ![Invalid Answer](/assets/images/invalid-ans.png)
+
+  - Upon succesfully submitting an answer, users will be told whether they are correct or incorrect and the next question will be asked.
+
+  ![Correct Answer](/assets/images/correct-ans.png)
+  ![Incorrect Answer](/assets/images/incorrect-ans.png)
+
+- __End of Quiz__
+  - At the end of the quiz, users will be told how many correct answers they got out of 20 and asked if they would like to play again.
+  - If users choose to play the game again then they will be taken back to the start of the questions.
+  - If users choose not to play again then they will recieve a good bye message and be shown the High Scores.
+  - Names and scores are stored in a Google Sheets worksheet via API.
+
+  ![End of Quiz](/assets/images/quiz-end.png)
+
+
+
+## Data Models
