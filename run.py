@@ -44,13 +44,13 @@ def get_name():
 (Maximum of 6 characters. Letters and numbers only.)\n""")
 
         if check_name(NAME):
-            print(f"Hello, {NAME}.\n")
+            print(f"\nHello, {NAME}.\n")
             break
 
     return NAME
 
 
-def check_name(name):
+def check_name(NAME):
     """
     Inside the try, validates user's input for an inputted name.
     ValueError will be raised for names longer than 6 characters,
@@ -60,9 +60,9 @@ def check_name(name):
     try:
         if not NAME:
             raise ValueError("Please enter your name")
-        if len(name) > 6:
+        if len(NAME) > 6:
             raise ValueError("Name contains too many characters.")
-        if not name.isalnum():
+        if not NAME.isalnum():
             raise ValueError("Invalid characters used.")
     except ValueError as e:
         print(f"Invalid data: {e} Try again.\n")
