@@ -16,6 +16,30 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Star Wars Quiz High Scores')
 
+questions = [
+    # Assigns correct answer to questions
+    Question(question_prompts[0], "b"),
+    Question(question_prompts[1], "d"),
+    Question(question_prompts[2], "a"),
+    Question(question_prompts[3], "d"),
+    Question(question_prompts[4], "c"),
+    Question(question_prompts[5], "b"),
+    Question(question_prompts[6], "b"),
+    Question(question_prompts[7], "a"),
+    Question(question_prompts[8], "b"),
+    Question(question_prompts[9], "d"),
+    Question(question_prompts[10], "a"),
+    Question(question_prompts[11], "c"),
+    Question(question_prompts[12], "b"),
+    Question(question_prompts[13], "a"),
+    Question(question_prompts[14], "c"),
+    Question(question_prompts[15], "b"),
+    Question(question_prompts[16], "c"),
+    Question(question_prompts[17], "b"),
+    Question(question_prompts[18], "c"),
+    Question(question_prompts[19], "a")
+]
+
 print("""
   ____ _____  _    ____   __        ___    ____  ____     ___  _   _ ___ _____
  / ___|_   _|/ \  |  _ \  \ \      / / \  |  _ \/ ___|   / _ \| | | |_ _|__  /
@@ -87,31 +111,6 @@ def start_game():
         start_game()
 
 
-questions = [
-    # Assigns correct answer to questions
-    Question(question_prompts[0], "b"),
-    Question(question_prompts[1], "d"),
-    Question(question_prompts[2], "a"),
-    Question(question_prompts[3], "d"),
-    Question(question_prompts[4], "c"),
-    Question(question_prompts[5], "b"),
-    Question(question_prompts[6], "b"),
-    Question(question_prompts[7], "a"),
-    Question(question_prompts[8], "b"),
-    Question(question_prompts[9], "d"),
-    Question(question_prompts[10], "a"),
-    Question(question_prompts[11], "c"),
-    Question(question_prompts[12], "b"),
-    Question(question_prompts[13], "a"),
-    Question(question_prompts[14], "c"),
-    Question(question_prompts[15], "b"),
-    Question(question_prompts[16], "c"),
-    Question(question_prompts[17], "b"),
-    Question(question_prompts[18], "c"),
-    Question(question_prompts[19], "a")
-]
-
-
 def run_quiz():
     """
     Function loops through questions and checks answer given
@@ -144,6 +143,9 @@ def play_again():
     Function takes user response and determines
     whether to play game again. If yes then run_quiz runs,
     if no then goodbye message will display.
+
+    Initial code taken from [Bro Code]
+    https://www.youtube.com/watch?v=yriw5Zh406s&list=RDCMUC4SVo0Ue36XCfOyb5Lh1viQ&index=2
     """
     response = input("Do you want to play again? (y/n)\n").lower()
 
@@ -188,6 +190,7 @@ def main():
     """
     get_name()
     check_name(NAME)
+    # Initial code from [Bro Code], link in README.md
     start_game()
     while play_again():
         run_quiz()

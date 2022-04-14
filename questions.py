@@ -1,4 +1,8 @@
-# Questions for game
+"""
+Questions for game. Initial inspiration taken from
+[Mike Dane](https://www.youtube.com/watch?v=SgQhwtIoQ7o) and
+then edited and expanded upon for my own requirements"""
+
 question_prompts = [
     """1. In what year was A New Hope released?\n\n
 (a) 1976\n

@@ -65,7 +65,10 @@ At the end of the quiz users will be provided with how many answers they got cor
 
   ![End of Quiz](/assets/images/quiz-end.png)
 
+### Features Left to Implement
 
+- A feature I would like to add in the future is to have more questions and to randomise them so users would have to answer any 20 guestions that are randomly selected by the computer, in order to provide a better user experience.
+- I would also like for users to be able to see their previous scores.
 
 ## Data Models
 
@@ -105,6 +108,10 @@ I have manually tested this project in the following ways:
 
 - No unfixed bugs
 
+### Validator Testing
+
+- [PEP8 Python Validator](http://pep8online.com/checkresult) - no issues
+
 ## Deployment
 
 - This project has been deployed to Heroku. The steps to deploy are as follows: 
@@ -113,6 +120,21 @@ I have manually tested this project in the following ways:
   - Scroll down and set the build packs to Python and NodeJS, in that order
   - Click on depoly and link the Heroku app to the Github repositary
   - Scroll down to manual deploy and click deploy branch
-  - After some time, a message will be displayed stating the app was successfully deployed.
+  - After some time, a message will be displayed stating the app was successfully deployed
+  - You can then click on view to see the deployed project.
 
+## Credits  
 
+### Content 
+
+- The initial inspiration and code for this project was taken from [Mike Dane](https://www.youtube.com/watch?v=SgQhwtIoQ7o) and [Bro Code](https://www.youtube.com/watch?v=yriw5Zh406s&list=RDCMUC4SVo0Ue36XCfOyb5Lh1viQ&index=2), then edited and expanded for my own requirements.
+- [Stack Overflow](https://stackoverflow.com) was a great source of information throughout the project but was particularly used for help with user input validation [here](https://stackoverflow.com/questions/71757895/user-input-validation-in-python), when trying to sort the high scores [here](https://stackoverflow.com/questions/71785967/sorting-column-b-google-sheets-api-python) where I ended up physically asking for help after struggling for a considerable amount of time, with the same issues.
+- [Code Institute](https://learn.codeinstitute.net/) Python Essentials tutorials were consulted throughout for clarification and understanding, especially the Love Sandwiches project which was inspiration for the get_name and check_name functions.
+- [Real Python](https://realpython.com/python-sort/) and [DelftStack](https://www.delftstack.com/howto/python/sort-list-of-lists-in-python/) with help on sorting.
+- [Geeks For Geeks](https://www.geeksforgeeks.org/python-get-first-and-last-elements-of-a-list/) and [Career Karma](https://careerkarma.com/blog/python-indexerror-list-index-out-of-range/) with help on list comprehension.
+- The ASCII title in this project came from [Patorjk](https://patorjk.com/software/taag/#p=display&f=Standard&t=STAR%20WARS%20QUIZ)
+- Questions for the quiz have came from [Ultimate Quiz Questions](https://www.ultimatequizquestions.com/star-wars-quiz-questions/), [Radio Times](https://www.radiotimes.com/tv/sci-fi/pub-quiz-star-wars/) and [Thought Catalog](https://thoughtcatalog.com/katee-fletcher/2020/04/star-wars-trivia-questions/)
+
+### Special Thanks
+
+- Thanks to my mentor Caleb Mbakwe for his insight and guidance throughout.
