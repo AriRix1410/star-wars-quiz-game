@@ -81,3 +81,38 @@ This project also contains a questions Class in order to store both the prompts 
 
 ![Flowchart](/assets/images/flowchart.png)
 
+## Testing
+
+I have manually tested this project in the following ways:
+
+- All code has been passed through the [PEP8 Python Validator](http://pep8online.com/checkresult) with no issues.
+
+![PEP8 Run](/assets/images/pep8.png)
+![PEP8 Class](/assets/images/pep8-class.png)
+![PEP8 Questions](/assets/images/pep8-questions.png)
+
+- Given invalid inputs such as names that are over 6 characters in length, names that contain symbols, answers other than a, b, c or d and inputs different to y or n when only y or n are required.
+- Tested in my local terminal on Gitpod and in the Code Institute Heroku terminal.
+
+### Bugs
+
+- When trying to set up user input validation for my questions, I encountered an issue where the error message would print but would still accept the input and proceed further in the game. This was due to me putting the if and while statements in my loop in the wrong order. When switched, the code performed as expected.
+- When writing the code for the high scores, the scores after sorting where sorted alphanumerically, this caused the high scores to be incorrect as numbers such as 11 and 14 where lower than other scores with a lower value as the first digit was lower. After recieving help in Stack Overflow, I was able to convert the scores into integers and then the scores were in the correct order.
+- Initially, instead of get_all_values, I used col_values. Although this did sort the scores, I realised that by doing this, the corresponding names to the scores were not being printed and instead was just the 5 first name entries on Google sheets. By using get_all_values instead, I was able to sort by the scores column but also print the correct names for those scores.
+- By using the method above, I encountered another problem where it was sorting the first column which contains the name data as opposed to the second column which contained the score data. This was due to a problem with my indexing being incorrect. After researching again, I was able to re-write this so that the data being sorted was from the scores column and the issue was fixed.
+
+### Unfixed Bugs
+
+- No unfixed bugs
+
+## Deployment
+
+- This project has been deployed to Heroku. The steps to deploy are as follows: 
+  - Create a new Heroku app
+  - In the settings tab, set two Config Vars, one for CREDS.json file, and one setting PORT to 8000 
+  - Scroll down and set the build packs to Python and NodeJS, in that order
+  - Click on depoly and link the Heroku app to the Github repositary
+  - Scroll down to manual deploy and click deploy branch
+  - After some time, a message will be displayed stating the app was successfully deployed.
+
+
